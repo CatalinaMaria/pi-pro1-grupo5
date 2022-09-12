@@ -1,15 +1,36 @@
 .cajapadre{
     display: flex;  
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
   }
   article{
       display: flex;
       flex-direction: column;
       margin-top: 30px;
       padding: 30px;
+      justify-content: center;
+      align-items: center;
   
   
   }
   img{
      height: 200px; 
     width: 150px;
+    border-radius: 15px;
   }
+  .nombrePeli{
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins'; 
+    font-weight: 600;
+    font-size:17px;
+    text-align: center;
+  }
+  .fechapelicula{
+    font-size: 12px;
+    font-family: 'Poppins'; 
+    font-weight: 500;
+    margin-top: 0.2%;
+}
