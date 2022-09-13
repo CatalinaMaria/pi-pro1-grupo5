@@ -12,6 +12,7 @@
       padding: 30px;
       justify-content: center;
       align-items: center;
+      color: white;
   
   
   }
@@ -27,10 +28,84 @@
     font-weight: 600;
     font-size:17px;
     text-align: center;
+    color: white;
   }
   .fechapelicula{
     font-size: 12px;
     font-family: 'Poppins'; 
     font-weight: 500;
     margin-top: 0.2%;
+    color: white;
+}
+
+*{box-sizing: border-box;}
+body{margin: 0;
+background-color: black;} 
+ul, ol{ padding: 0;}
+li{list-style-type: none;}
+a {text-decoration: none; color: rgb(255, 254, 254);}
+
+header{
+    height:15vh;
+    border-bottom:  2px solid #707070;
+    display: flex;
+    align-items: center;
+    background-color: purple;
+    color: white;
+   
+}
+nav { 
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    justify-content: start;
+    width:6%;
+    margin: 0 0 0 5%;
+    border-radius: 110px;
+    height: 10vh;
+
+}
+header a { 
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size:23px;
+    margin:0 3.5%;
+    color: white;
+}
+
+.favoritos {
+    align-self: center;
+    width:80%;
+    margin-top:20%;
+}
+
+.subtitulo{
+    font-family: 'Poppins';
+    margin: 3%;
+    color: white;
+}
+
+footer{
+  text-align: center;
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+
+  background-color:purple ;
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px;
+  color: white;
+ 
+  width: 1180px;
+  align-self: center;
+  margin: auto;
+  display: block;
+ 
 }
