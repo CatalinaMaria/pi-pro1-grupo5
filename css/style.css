@@ -12,6 +12,7 @@
       padding: 30px;
       justify-content: center;
       align-items: center;
+      color: white;
   
   
   }
@@ -27,30 +28,37 @@
     font-weight: 600;
     font-size:17px;
     text-align: center;
+    color: white;
   }
   .fechapelicula{
     font-size: 12px;
     font-family: 'Poppins'; 
     font-weight: 500;
     margin-top: 0.2%;
+    color: white;
 }
 
 *{box-sizing: border-box;}
-body{margin: 0;}
+body{margin: 0;
+background-color: black;} 
 ul, ol{ padding: 0;}
 li{list-style-type: none;}
-a {text-decoration: none; color: #000;}
+a {text-decoration: none; color: rgb(255, 254, 254);}
 
 header{
     height:15vh;
     border-bottom:  2px solid #707070;
     display: flex;
     align-items: center;
+    background-color: purple;
+    color: white;
+   
 }
 nav { 
     display: flex;
     align-items: center;
     width: 100%;
+    color: white;
 }
 
 .logo {
@@ -67,6 +75,7 @@ header a {
     font-weight: bold;
     font-size:23px;
     margin:0 3.5%;
+    color: white;
 }
 
 .favoritos {
@@ -78,6 +87,7 @@ header a {
 .subtitulo{
     font-family: 'Poppins';
     margin: 3%;
+    color: white;
 }
 
 footer{
@@ -85,12 +95,13 @@ footer{
   font-size: small;
   font-family: Arial, Helvetica, sans-serif;
 
-  background-color: rgb(200,0,0);
+  background-color:purple ;
   display:flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
   padding: 15px;
+  color: white;
  
   width: 1180px;
   align-self: center;
