@@ -5,7 +5,7 @@
     align-items: center;
     flex-wrap: wrap;
   }
-  article{
+article{
       display: flex;
       flex-direction: column;
       margin-top: 30px;
@@ -16,12 +16,12 @@
   
   
   }
-  img{
+img{
      height: 200px; 
     width: 150px;
     border-radius: 15px;
   }
-  .nombrePeli{
+.nombrePeli{
     justify-content: center;
     align-items: center;
     font-family: 'Poppins'; 
@@ -30,7 +30,7 @@
     text-align: center;
     color: white;
   }
-  .fechapelicula{
+.fechapelicula{
     font-size: 12px;
     font-family: 'Poppins'; 
     font-weight: 500;
@@ -38,12 +38,26 @@
     color: white;
 }
 
-*{box-sizing: border-box;}
-body{margin: 0;
-background-color: black;} 
-ul, ol{ padding: 0;}
-li{list-style-type: none;}
-a {text-decoration: none; color: rgb(255, 254, 254);}
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    margin: 0;
+    background-color: black;
+    color: white;
+} 
+ul, ol{
+        padding: 0;
+    }
+li{
+    list-style-type: none;
+}
+a {
+    text-decoration: none; 
+    color: rgb(255, 254, 254);
+}
 
 header{
     height:15vh;
@@ -70,8 +84,7 @@ nav {
     height: 10vh;
 
 }
-header a { 
-    font-family: 'Poppins';
+header a {
     font-weight: bold;
     font-size:23px;
     margin:0 3.5%;
