@@ -1,3 +1,5 @@
+
+/* index */
 .cajapadre{
     display: flex;  
     flex-direction: row;
@@ -59,6 +61,8 @@ a {
     color: rgb(255, 254, 254);
 }
 
+/* header */
+
 header{
     height:15vh;
     border-bottom:  2px solid #707070;
@@ -103,22 +107,118 @@ header a {
     color: white;
 }
 
-footer{
-  text-align: center;
-  font-size: small;
-  font-family: Arial, Helvetica, sans-serif;
 
-  background-color:purple ;
-  display:flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 15px;
-  color: white;
- 
-  width: 1180px;
-  align-self: center;
-  margin: auto;
-  display: block;
- 
+
+/*Pagina de detalle*/
+.section{
+    display: flex;
+    flex-direction: row;
+    max-width: 900px;
 }
+.article{
+    align-self: center;
+    margin-bottom: 7vh;
+
+}
+.poster{
+    height: auto;
+    width: 80%;
+    border-radius: 8%;
+    margin-top: 11vh;
+    margin-bottom: 16vh;
+    margin-left: 10vw;
+    margin-right: 2vw;
+}
+.tituloPelicula{
+    font-family: poppins;
+    font-size: 30px;
+    margin-bottom: 2vh;
+    max-width: 100%;
+}
+
+.fecha{
+    font-family: poppins;
+    font-size: 20px;
+    margin-bottom: 1vh;
+    font-weight: normal;
+    align-self: flex-start;
+}
+
+.descripcionPelicula{
+    font-family: poppins;
+    font-size: 20px;
+    margin-bottom: 1vh;
+    
+}
+.generoPelicula{
+    font-family: poppins;
+    font-size: 20px;
+    margin-bottom: 1vh;
+    align-self: flex-start;
+    
+}
+.duracion{
+    font-family: poppins;
+    font-size: 20px;
+    align-self: flex-start;
+}
+.rating{
+    font-family: poppins;
+    font-size: 20px;
+    margin-bottom: 1vh;
+}
+/* icono*/
+.articleIcono{
+    display: flex;
+    align-content: center;
+    margin-bottom: 50vh;
+
+}
+
+.iconoCorazon{
+    width: 50px;
+    height: 50px;
+}
+
+/* Footer */
+
+.listaFooter {
+    display: flex;
+    flex-direction: row;   
+    margin: 0 auto;
+    justify-content: flex-start;
+    height:20vh;
+    align-items: center;
+}
+.creadoras {
+    font-family: 'Poppins';
+    font-weight: 600;
+    margin: 0 12% 0 5%;
+    font-size:25px;
+    color: white;
+    font-weight: bold;
+}
+.elementoFooter {
+    font-family: 'Poppins';
+    font-weight: 500;
+    margin: 0 4% 0 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.nombreCreador {
+    font-size:20px; 
+    margin:0;
+    color: white;
+    font-weight: bold;
+    font-size:23px;
+}
+.footer{
+    width: 100%;
+    height: 200px;
+    background-color: purple;
+    color: white;
+    font-size:23px;
+
+}
+
