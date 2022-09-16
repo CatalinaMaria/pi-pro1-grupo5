@@ -7,59 +7,64 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
-<header>
-    <nav>
-        <img src="./img/logo.png" class="logo" alt="">
-        <a href="./index.html">Home</a>
-        <a href="./genero.html">Generos</a>
-        <a href="./favoritos.html">Favoritos</a>
-    </nav>
-     <!--Formulario de busqueda-->
-     <form action="resultados.html" method="get" class="formulario">
-        <label for="">Buscar pelicula o serie:</label>
-        <input type="text" name="buscar" value="">
-        <button type="submit">Buscar</button>
-    </form>
 
-</header>
 <body>
+    <!--Header-->
+    <header>
+        <nav>
+            <img src="./img/logo.png" class="logo" alt="">
+            <a href="./index.html">Home</a>
+            <a href="./genero.html">Generos</a>
+            <a href="./favoritos.html">Favoritos</a>
+        </nav>
+         <!--Formulario de busqueda-->
+         <form action="resultados.html" method="get" class="formulario">
+            <label for="">Buscar pelicula o serie:</label>
+            <input type="text" name="buscar" value="">
+            <button type="submit">Buscar</button>
+        </form>
     
-    <main class="contenedorGenero">
+    </header>
+ <!--Lista de generos-->   
+
+ <section class="containerGenero">
+    <div class="generoPrueba">
         <h2 class="tituloGenero"> Generos Peliculas:</h2>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Familiares </a>
-        </li>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Comedia </a>
-        </li>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Ciencia ficción </a>
-        </li>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Fantasía </a>
-        </li>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Aventura </a>
-        </li>
-</main>
-<main class="contenedorGenero">
-        <h2 class="tituloGeneroSeries"> Generos Series:</h2>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Familiares </a>
-        </li>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Comedia </a>
-        </li>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Ciencia ficción </a>
-        </li>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Fantasía </a>
-        </li>
-        <li class="listaGenero"> 
-            <a href="./detalle-genero.html"> Aventura </a>
-        </li>
-    </main>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Familiares </a>
+    </li>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Comedia </a>
+    </li>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Ciencia ficción </a>
+    </li>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Fantasía </a>
+    </li>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Aventura </a>
+    </li>
+    </div>
+    <div class="seriesPrueba">
+        <h2 class="tituloGenero"> Generos Series:</h2>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Familiares </a>
+    </li>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Comedia </a>
+    </li>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Ciencia ficción </a>
+    </li>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Fantasía </a>
+    </li>
+    <li class="listaGenero"> 
+        <a href="./detalle-genero.html" class="genero"> Aventura </a>
+    </li>
+    </div>
+</section>
 
 <!-- Footer -->
 
@@ -76,4 +81,5 @@
     </article>
   
 </footer>
+</body>
 </html>
