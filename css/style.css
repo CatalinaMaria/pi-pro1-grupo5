@@ -320,3 +320,204 @@ header a {
 
 /*--Responsive mobile last--*/
 
+/* Media Queries*/
+
+@media(max-width: 420px){
+    /* header*/
+    img{
+        height: 150px; 
+       width: 120px;
+       border-radius: 5px;
+     }
+     header{
+        height: 15vh;
+        width: 420px;
+        border-bottom: 2px solid #707070;
+        display: flex;
+        align-items: center;
+        background-color: purple;
+        color: white;
+        flex-direction: column;
+        justify-content: center;
+       
+    }
+    nav { 
+        display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+    justify-content: center;
+    }
+    
+    .logo {
+        display: flex;
+        justify-content: start;
+        width:40px;
+        margin: 0 0 0 5%;
+        border-radius: 100px;
+        height: 40px;
+    
+    }
+    header a {
+        font-weight: bold;
+        font-size:15px;
+        margin:0 3.5%;
+        color: white;
+        justify-content: center;
+    }
+    
+    .favoritos {
+        align-self: center;
+        width:50%;
+        margin-top:20%;
+    }
+    
+    .subtitulo{
+        font-family: 'Poppins';
+        margin: 3%;
+        color: white;
+    }
+    .formulario{
+        width: 60%;
+        justify-content: center;
+    }
+    /*Pagina de detalle*/
+.section{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+.article{
+    align-self: center;
+    margin-bottom: 2vh;
+    margin-top: 0px;
+
+}
+.poster{
+    height: auto;
+    width: 50%;
+    border-radius: 8%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+.tituloPelicula{
+    font-family: poppins;
+    font-size: 25px;
+    margin-bottom: 2vh;
+    max-width: 100%;
+}
+
+.fecha{
+    font-family: poppins;
+    font-size: 15px;
+    margin-bottom: 1vh;
+    font-weight: normal;
+    align-self: flex-start;
+}
+
+.descripcionPelicula{
+    font-family: poppins;
+    font-size: 12px;
+    margin-bottom: 0px;
+    
+}
+.generoPelicula{
+    font-family: poppins;
+    font-size: 12px;
+    margin-bottom: 1vh;
+    align-self: flex-start;
+    
+}
+.duracion{
+    font-family: poppins;
+    font-size: 12px;
+    align-self: flex-start;
+}
+.rating{
+    font-family: poppins;
+    font-size: 12px;
+    margin-bottom: 1vh;
+}
+/* icono*/
+.articleIcono{
+    display: flex;
+    align-content: center;
+    margin-bottom: 10vh;
+
+}
+
+.iconoCorazon{
+    margin: 0px;
+    width: 50px;
+    height: 50px;
+}
+
+/*Genero*/
+.containerGenero{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;   
+    justify-content: space-around;
+    padding: 10px;
+    height:100%;
+}
+.generoPrueba{
+    align-self: flex-start;
+    margin-left: 25%;
+    height: 70%;
+    width: 50%;
+    justify-content: center;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+.seriesPrueba{
+    align-self: flex-start;
+    margin-left: 25%;
+    height: 70%;
+    width: 50%;
+    justify-content: center;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.tituloGenero{
+    background-color: purple;
+    color: white;
+    font-weight: bold;
+    font-family: poppins;
+    justify-content: center;
+    font-size: 30px;
+    text-align: left;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+
+
+}
+.listaGenero{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+}
+.genero{
+    background-color: purple;
+    color: white;
+    text-decoration: none;
+    height: 42px;
+    width: 200px;
+    font-weight: bold;
+    font-family: poppins;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+}
