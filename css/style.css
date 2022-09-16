@@ -26,7 +26,6 @@ img{
 .nombrePeli{
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins'; 
     font-weight: 600;
     font-size:17px;
     text-align: center;
@@ -34,7 +33,6 @@ img{
   }
 .fechapelicula{
     font-size: 12px;
-    font-family: 'Poppins'; 
     font-weight: 500;
     margin-top: 0.2%;
     color: white;
@@ -72,7 +70,6 @@ a {
     height: 40px;
     width: 100px;
     font-weight: bold;
-    font-family: poppins;
     font-size: 16px;
 
 }
@@ -118,7 +115,6 @@ header a {
 }
 
 .subtitulo{
-    font-family: 'Poppins';
     margin: 3%;
     color: white;
 }
@@ -146,14 +142,12 @@ header a {
     margin-right: 2vw;
 }
 .tituloPelicula{
-    font-family: poppins;
     font-size: 30px;
     margin-bottom: 2vh;
     max-width: 100%;
 }
 
 .fecha{
-    font-family: poppins;
     font-size: 20px;
     margin-bottom: 1vh;
     font-weight: normal;
@@ -161,25 +155,21 @@ header a {
 }
 
 .descripcionPelicula{
-    font-family: poppins;
     font-size: 20px;
     margin-bottom: 1vh;
     
 }
 .generoPelicula{
-    font-family: poppins;
     font-size: 20px;
     margin-bottom: 1vh;
     align-self: flex-start;
     
 }
 .duracion{
-    font-family: poppins;
     font-size: 20px;
     align-self: flex-start;
 }
 .rating{
-    font-family: poppins;
     font-size: 20px;
     margin-bottom: 1vh;
 }
@@ -198,47 +188,15 @@ header a {
 }
 
 /* Footer */
-
-.listaFooter {
-    display: flex;
-    flex-direction: row;   
-    margin: 0 auto;
-    justify-content: center;
-    height:20vh;
-    align-self: center;
-}
-.creadoras {
-    font-family: 'Poppins';
-    font-weight: 600;
-    margin: 0 12% 0 5%;
-    font-size:25px;
-    color: white;
-    font-weight: bold;
-
-}
-.elementoFooter {
-    font-family: 'Poppins';
-    font-weight: 500;
-    margin: 0 4% 0 0;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.nombreCreador {
-    font-size:20px; 
-    margin:0;
-    color: white;
-    font-weight: bold;
-    font-size:23px;
-}
 .footer{
-    width: 100%;
-    height: 120px;
-    background-color: purple;
-    color: white;
-    font-size:23px;
+  background-color: purple;
+  display: flex;
+  align-items: center;
 
+  
 }
+
+
 /* lista de genero */
 
 .containerGenero{
@@ -373,7 +331,6 @@ header a {
     }
     
     .subtitulo{
-        font-family: 'Poppins';
         margin: 3%;
         color: white;
     }
@@ -403,14 +360,12 @@ header a {
     margin-right: 2vw;
 }
 .tituloPelicula{
-    font-family: poppins;
     font-size: 25px;
     margin-bottom: 2vh;
     max-width: 100%;
 }
 
 .fecha{
-    font-family: poppins;
     font-size: 15px;
     margin-bottom: 1vh;
     font-weight: normal;
@@ -418,25 +373,21 @@ header a {
 }
 
 .descripcionPelicula{
-    font-family: poppins;
     font-size: 12px;
     margin-bottom: 0px;
     
 }
 .generoPelicula{
-    font-family: poppins;
     font-size: 12px;
     margin-bottom: 1vh;
     align-self: flex-start;
     
 }
 .duracion{
-    font-family: poppins;
     font-size: 12px;
     align-self: flex-start;
 }
 .rating{
-    font-family: poppins;
     font-size: 12px;
     margin-bottom: 1vh;
 }
@@ -490,7 +441,6 @@ header a {
     background-color: purple;
     color: white;
     font-weight: bold;
-    font-family: poppins;
     justify-content: center;
     font-size: 30px;
     text-align: left;
@@ -514,7 +464,6 @@ header a {
     height: 42px;
     width: 200px;
     font-weight: bold;
-    font-family: poppins;
     font-size: 20px;
     padding: 10px;
     border-radius: 5px;
@@ -530,7 +479,6 @@ header a {
     align-self: center;
 }
 .creadoras {
-    font-family: 'Poppins';
     font-weight: 600;
     font-size:25px;
     color: white;
@@ -538,7 +486,6 @@ header a {
 
 }
 .elementoFooter {
-    font-family: 'Poppins';
     font-weight: 500;
     display: flex;
     align-items: center;
