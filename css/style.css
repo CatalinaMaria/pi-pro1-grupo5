@@ -187,13 +187,8 @@ header a {
     height: 50px;
 }
 
-/* Footer */
-.footer{
-  background-color: purple;
-  display: flex;
-  align-items: center;
-  height: 30px;
-}
+
+
 
 
 /* lista de genero */
@@ -273,6 +268,14 @@ header a {
     text-align: center;
     color: white;
     display: none;
+}
+/* footer*/
+footer{
+    background-color: purple;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
 }
 
 /*--Responsive mobile last--*/
