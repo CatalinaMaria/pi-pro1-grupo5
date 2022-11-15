@@ -1,19 +1,106 @@
 
 let apiKey= "bfec0622d489778cd408f2f5942ce52d"
 let api= `https://api.themoviedb.org/3/movie/76341?api_key=${apiKey}`
+let peliculasPopulares = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
+let seriesPopulares = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=1`
+let topRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`
 
+let seccionPeliculasPopulares = document.querySelector("#peliculasPopu")
+let seccionSeriesPopulares = document.querySelector("#seriesPopu")
+let seccionTopRated = document.querySelector("#topRated")
 // Fetch para pelis populares
-fetch(api)
+
+fetch(peliculasPopulares)
    .then(function(response){
-        return response.json();
+          console.log(response)
+          return response.json();
    })
    .then(function(data){
-        return data;
+     console.log(data.results)
+     peliculas = data.results
+     contenidoPeliculas =''
+     for (let i = 0; i<5; i++){
+          contenidoPeliculas +=
+          ` <article >
+          <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${peliculas[i].poster_path}"
+          alt=" foto poster ${peliculas[i].title}"> </a>
+          <p class="nombrePeli">${peliculas[i].title}</p>
+          <p>  Fecha de estreno: ${peliculas[i].release_date} </p>
+          <form action="detalle-pelicula.html">
+              <button type="" class="verMas">Ver más</button>
+          </form>
+      </article>`
+     }
+     seccionPeliculasPopulares.innerHTML = contenidoPeliculas
+     return data;
+
     })
    .catch(function(error){
         return error;
     })
-// formulario de busqueda
+// section series popu
+fetch(seriesPopulares)
+   .then(function(response){
+          console.log(response)
+          return response.json();
+   })
+   .then(function(data){
+     console.log(data.results)
+     series = data.results
+     contenidoSeries =''
+     for (let i = 0; i<5; i++){
+          contenidoSeries +=
+          ` <article >
+          <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${series[i].poster_path}"
+          alt=" foto poster ${series[i].name}"> </a>
+          <p class="nombrePeli">${series[i].name}</p>
+          <p>  Fecha de estreno: ${series[i].first_air_date} </p>
+          <form action="detalle-pelicula.html">
+              <button type="" class="verMas">Ver más</button>
+          </form>
+      </article>`
+     }
+     seccionSeriesPopulares.innerHTML = contenidoSeries
+     return data;
+
+    })
+   .catch(function(error){
+        return error;
+    })
+
+// seccion peliculas top rated
+fetch(topRated)
+   .then(function(response){
+          console.log(response)
+          return response.json();
+   })
+   .then(function(data){
+     console.log(data.results)
+     toprated = data.results
+     contenidoTopRated =''
+     for (let i = 0; i<5; i++){
+          contenidoTopRated +=
+          ` <article >
+          <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${peliculas[i].poster_path}"
+          alt=" foto poster ${peliculas[i].title}"> </a>
+          <p class="nombrePeli">${peliculas[i].title}</p>
+          <p>  Fecha de estreno: ${peliculas[i].release_date} </p>
+          <p>  Votos: ${peliculas[i].vote_average} </p>
+          <form action="detalle-pelicula.html">
+              <button type="" class="verMas">Ver más</button>
+          </form>
+      </article>`
+     }
+     seccionTopRated.innerHTML = contenidoTopRated
+     return data;
+
+    })
+   .catch(function(error){
+        return error;
+    })
+
+
+    // formulario de busqueda
   
 let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
