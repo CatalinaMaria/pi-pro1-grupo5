@@ -13,10 +13,10 @@ fetch(url)
      })
      .then (function(data){
           console.log(data);
-          for (let i = 0; i<1; i++)
+          for (let i = 0; i<2; i++)
           sectionDetPeliculas.innerHTML += `
           <article class="articlePoster">
-          <img src="" alt="" class="poster">
+          <img src=" " alt="" class="poster">
       </article>
       <article class="article">
           <h1 class="tituloPelicula">${data.original_title}</h1>

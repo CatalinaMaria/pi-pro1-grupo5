@@ -53,9 +53,9 @@ fetch(seriesPopulares)
           ` <article >
           <a href="./detalle-serie.html?id=${series[i].id}"> <img src="https://image.tmdb.org/t/p/w500/${series[i].poster_path}"
           alt=" foto poster ${series[i].name}"> </a>
-          <p class="nombrePeli">${series[i].name}</p>
+          <p class="nombreSerie">${series[i].name}</p>
           <p>  Fecha de estreno: ${series[i].first_air_date} </p>
-          <a href="./detalle-pelicula.html?id=${series[i].id}">
+          <a href="./detalle-serie.html?id=${series[i].id}">
           <button type="" class="verMas">Ver mas</button>
       </a>
   </article>`
