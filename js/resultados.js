@@ -35,7 +35,7 @@ h1.innerText = `Resultado de busqueda para: "${palabra}"`;
 
 let sectionGeneral = document.querySelector(".formatoSection");
 window.addEventListener("load", function(event) {
-  let gify = '<img class="gif" src="./img/load.gif">';
+  let gify = '<img class="gif" src="./img/loading.gif">';
   sectionGeneral.innerHTML = gify;
 });
 

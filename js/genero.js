@@ -17,3 +17,9 @@ form.addEventListener('submit', function(e){
           this.submit();
      }
 })
+
+//series
+
+
+//Peliculas
+let urlPeliculas= `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
