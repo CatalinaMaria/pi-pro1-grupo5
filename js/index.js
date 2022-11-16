@@ -55,10 +55,10 @@ fetch(seriesPopulares)
           alt=" foto poster ${series[i].name}"> </a>
           <p class="nombrePeli">${series[i].name}</p>
           <p>  Fecha de estreno: ${series[i].first_air_date} </p>
-          <a href="./detalle-serie.html?id=${series[i].id}>
-              <button type="" class="verMas">Ver más</button>
-          </a>
-      </article>`
+          <a href="./detalle-pelicula.html?id=${series[i].id}">
+          <button type="" class="verMas">Ver mas</button>
+      </a>
+  </article>`
      }
      seccionSeriesPopulares.innerHTML = contenidoSeries
      return data;
@@ -86,8 +86,8 @@ fetch(topRated)
           <p class="nombrePeli">${peliculas[i].title}</p>
           <p>  Fecha de estreno: ${peliculas[i].release_date} </p>
           <p>  Votos: ${peliculas[i].vote_average} </p>
-          <a href="./detalle-pelicula.html?id=${peliculas[i].id}>
-              <button type="" class="verMas">Ver más</button>
+          <a href="./detalle-pelicula.html?id=${peliculas[i].id}">
+              <button type="" class="verMas">Ver mas</button>
           </a>
       </article>`
      }

@@ -288,7 +288,18 @@ footer{
     margin: 0 0 0 5%;
     height: 10vh;
 }
-
+.formatoSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.gif {
+    width: 50%;
+    margin-bottom: 5%;
+    align-items: center;
+}
 /*--Responsive mobile last--*/
 
 /* Media Queries*/
@@ -490,5 +501,12 @@ footer{
     justify-content: space-around;
     flex-direction: row;
    
+}
+.imgFooter{
+    display: flex;
+    justify-content: end;
+    width:20%;
+    margin: 0 0 0 5%;
+    height: 10vh;
 }
 }

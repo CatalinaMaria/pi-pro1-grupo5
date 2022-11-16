@@ -31,6 +31,14 @@ console.log(palabra);
 let h1 = document.querySelector("h1");
 h1.innerText = `Resultado de busqueda para: "${palabra}"`;
 
+//gif de loading
+
+let sectionGeneral = document.querySelector(".formatoSection");
+window.addEventListener("load", function(event) {
+  let gify = '<img class="gif" src="./img/load.gif">';
+  sectionGeneral.innerHTML = gify;
+});
+
 //fetch resultado de busqueda peliculas
 
 let apiResultados = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${palabra}&page=1&include_adult=false`;
