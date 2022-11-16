@@ -281,6 +281,14 @@ footer{
     flex-direction: row;
 }
 
+.imgFooter{
+    display: flex;
+    justify-content: end;
+    width:8%;
+    margin: 0 0 0 5%;
+    height: 10vh;
+}
+
 /*--Responsive mobile last--*/
 
 /* Media Queries*/

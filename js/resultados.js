@@ -47,7 +47,7 @@ fetch(apiResultados)
 
         for (let i = 0; i < 5; i++) {
             peliculas += `<article >
-            <a href="./detalle-pelicula.html"> <img src="./img/4aa709fb827464c325ee3c63f07b8a6c.jpeg" alt=""> </a>
+            <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${arrayPelicula[i].poster_path}" alt=""> </a>
             <p class="nombrePeli">Titulo: ${arrayPelicula[i].title}</p>
             <p>  Fecha de estreno: ${arrayPelicula[i].release_date} </p>
             <form action="detalle-pelicula.html">
@@ -80,9 +80,9 @@ fetch(apiResultados)
     
             for (let i = 0; i < 5; i++) {
                 series += `<article >
-                <a href="./detalle-pelicula.html"> <img src="" alt=""> </a>
-                <p class="nombrePeli">Titulo:  </p>
-                <p>  Fecha de estreno:  </p>
+                <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${arraySerie[i].poster_path}" alt=""> </a>
+                <p class="nombrePeli">Titulo: ${arraySerie[i].name} </p>
+                <p>  Fecha de estreno: ${arraySerie[i].first_air_date} </p>
                 <form action="detalle-pelicula.html">
                     <button type="" class="verMas">Ver más</button>
                 </form>

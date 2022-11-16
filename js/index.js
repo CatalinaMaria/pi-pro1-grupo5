@@ -22,13 +22,13 @@ fetch(peliculasPopulares)
      for (let i = 0; i<5; i++){
           contenidoPeliculas +=
           ` <article >
-          <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${peliculas[i].poster_path}"
+          <a href="./detalle-pelicula.html?id=${peliculas[i].id}"> <img src="https://image.tmdb.org/t/p/w500/${peliculas[i].poster_path}"
           alt=" foto poster ${peliculas[i].title}"> </a>
           <p class="nombrePeli">${peliculas[i].title}</p>
           <p>  Fecha de estreno: ${peliculas[i].release_date} </p>
-          <form action="detalle-pelicula.html">
-              <button type="" class="verMas">Ver más</button>
-          </form>
+          <a href="./detalle-pelicula.html?id=${peliculas[i].id}">
+              <button type="" class="verMas">Ver mas</button>
+          </a>
       </article>`
      }
      seccionPeliculasPopulares.innerHTML = contenidoPeliculas
@@ -51,13 +51,13 @@ fetch(seriesPopulares)
      for (let i = 0; i<5; i++){
           contenidoSeries +=
           ` <article >
-          <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${series[i].poster_path}"
+          <a href="./detalle-serie.html?id=${series[i].id}"> <img src="https://image.tmdb.org/t/p/w500/${series[i].poster_path}"
           alt=" foto poster ${series[i].name}"> </a>
           <p class="nombrePeli">${series[i].name}</p>
           <p>  Fecha de estreno: ${series[i].first_air_date} </p>
-          <form action="detalle-pelicula.html">
+          <a href="./detalle-serie.html?id=${series[i].id}>
               <button type="" class="verMas">Ver más</button>
-          </form>
+          </a>
       </article>`
      }
      seccionSeriesPopulares.innerHTML = contenidoSeries
@@ -81,14 +81,14 @@ fetch(topRated)
      for (let i = 0; i<5; i++){
           contenidoTopRated +=
           ` <article >
-          <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${peliculas[i].poster_path}"
+          <a href="./detalle-pelicula.html?id=${peliculas[i].id}"> <img src="https://image.tmdb.org/t/p/w500/${peliculas[i].poster_path}"
           alt=" foto poster ${peliculas[i].title}"> </a>
           <p class="nombrePeli">${peliculas[i].title}</p>
           <p>  Fecha de estreno: ${peliculas[i].release_date} </p>
           <p>  Votos: ${peliculas[i].vote_average} </p>
-          <form action="detalle-pelicula.html">
+          <a href="./detalle-pelicula.html?id=${peliculas[i].id}>
               <button type="" class="verMas">Ver más</button>
-          </form>
+          </a>
       </article>`
      }
      seccionTopRated.innerHTML = contenidoTopRated

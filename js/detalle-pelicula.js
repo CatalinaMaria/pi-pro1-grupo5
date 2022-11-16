@@ -4,7 +4,8 @@ let qsObj = new URLSearchParams(qs);
 let id = qsObj.get('id');
 let url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
 let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')
-console.log(id);
+console.log(id); 
+
 
 fetch(url)
      .then (function(response){
