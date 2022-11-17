@@ -56,11 +56,11 @@ form.addEventListener('submit', function(e){
 })
 
 
+// favoritos
 
-
+let icono = document.querySelector('.articleIcono') // agarra el corazon 
 let favoritos=[]
-let icono= document.querySelector('.articleIcono')
-let recuperoStorage = localStorage.getItem("favoritos")
+let recuperoStorage = localStorage.getItem("favoritos") 
 
 if (recuperoStorage != null) {
     favoritos =  JSON.parse(recuperoStorage)
