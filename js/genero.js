@@ -2,34 +2,6 @@ let apiKey= "bfec0622d489778cd408f2f5942ce52d"
 let generosPeliculas = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`
 let generosSeries = `https://api.themoviedb.org/3/genre/tv/list?api_key=${apiKey}&language=en-US`
 
-let sectionGeneros = document.querySelector('.containerGenero')
-
-fetch(generosPeliculas)
-   .then(function(response){
-          console.log(response)
-          return response.json();
-   })
-   .then(function(data){
-     console.log(data.results)
-     generosp = data.results
-     contenidoGeneros =''
-     for (let i = 0; i<5; i++){
-          contenidoGeneros +=` 
-          
-          `}
-          
-     seccionGeneros.innerHTML = contenidoGeneros
-     return data;
-
-     })
-   .catch(function(error){
-        return error;
-    })
-
-
-
-
-
 
 
 // formulario de busqueda
@@ -51,8 +23,54 @@ form.addEventListener('submit', function(e){
      }
 })
 
-//series
+// series
+let sectionGeneros = document.querySelector('.containerGenero')
+
+fetch(generosSeries)
+.then(function(response){
+     return response.json();
+})
+.then(function(data){
+     console.log(data);
+
+     let seriesLista = document.querySelector(".seriesPrueba")
+     let info = data.genres;
+
+     for (let i = 0; i < 5; i++) {
+          let generosSeries = `<li class="listaGenero"> 
+          <a href="./detalle-genero.html?id=${info[i].id}&tipo=seriesynombre=${info[i].name}" class="genero"> ${info[i].name} </a>
+      </li>`
+          seriesLista.innerHTML+=generosSeries
+     }
+})
+.catch(function(error){
+     console.log("error" + error)
+})
 
 
-//Peliculas
-let urlPeliculas= `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
+//peliculas
+
+fetch(generosPeliculas)
+.then (function(response){
+     return response.json();
+})
+.then(function(data){
+     console.log(data);
+
+     let pelisLista = document.querySelector(".generoPrueba")
+     let info = data.genres;
+
+     for (let i = 0; i < 5; i++) {
+          let generosPeliculas = `<li class="listaGenero"> 
+          <a href="./detalle-genero.html?id=${info[i].id}&tipo=seriesynombre=${info[i].name}" class="genero"> ${info[i].name} </a>
+      </li>`
+          pelisLista.innerHTML+=generosPeliculas
+     }
+})
+.catch(function(error){
+     console.log("error" + error)
+})
+
+
+
+
