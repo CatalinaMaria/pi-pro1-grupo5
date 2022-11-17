@@ -18,3 +18,10 @@ form.addEventListener('submit', function(e){
           this.submit();
      }
 })
+
+let queryString = location.search;
+console.log(queryString);
+
+let queryStringObject = new URLSearchParams(queryString);
+console.log(queryStringObject);
+
