@@ -25,9 +25,6 @@ fetch(url)
           <p class="generoPelicula">Genero: ${data.genres}</p>
               <p class="duracion"> Duracion: ${data.runtime}</p>
               <p class="rating">Rating: ${data.vote_average} %</p>
-      </article>
-      <article class="articleIcono">
-          <img src="./img/amor.png" alt="" class="iconoCorazon">
       </article>`
      })
      .catch(function (errores) {
@@ -57,4 +54,34 @@ form.addEventListener('submit', function(e){
           this.submit();
      }
 })
+
+
+
+
+let favoritos=[]
+let icono= document.querySelector('.articleIcono')
+let recuperoStorage = localStorage.getItem("favoritos")
+
+if (recuperoStorage != null) {
+    favoritos =  JSON.parse(recuperoStorage)
+}
+
+
+icono.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    if (favoritos.includes(id)) {
+       let indice = favoritos.indexOf(id)
+       favoritos.splice(indice, 1);
+       
+    }else{
+        favoritos.push(id)
+        icono.innerText = "Quitar de favoritos"
+    }
+
+    let favsToString = JSON.stringify(favoritos);
+    localStorage.setItem("favoritos", favsToString )
+})
+
+
 

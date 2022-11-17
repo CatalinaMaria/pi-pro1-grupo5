@@ -55,3 +55,28 @@ form.addEventListener('submit', function(e){
           this.submit();
      }
 })
+
+let favoritos=[]
+
+let recuperoStorage = localStorage.getItem("favoritos")
+
+if (recuperoStorage != null) {
+    favoritos =  JSON.parse(recuperoStorage)
+}
+
+
+iconoCorazon.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    if (favoritos.includes(id)) {
+       let indice = favoritos.indexOf(id)
+       favoritos.splice(indice, 1);
+       
+    }else{
+        favoritos.push(id)
+        iconoCorazon.innerText = "Quitar de favoritos"
+    }
+
+    let favsToString = JSON.stringify(favoritos);
+    localStorage.setItem("favoritos", favsToString )
+})

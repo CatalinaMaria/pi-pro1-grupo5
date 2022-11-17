@@ -18,23 +18,23 @@ form.addEventListener('submit', function(e){
      }
 })
 
-let recuperoStorage = localStorage.getItem("favoritos");
-
-
-let favoritos = JSON.parse(recuperoStorage);
-   
+let recuperoStorage = localStorage.getItem("id");
+let qs = location.search;
+let qsObj = new URLSearchParams(qs);
+let id = qsObj.get('id');
+let favorito = JSON.parse(recuperoStorage);
 
 let section = document.querySelector('.favoritos');
 
 let peliculasFavoritos = '';
 
-if (favoritos == null || favoritos.length == 0) {
+if (favorito == null || favorito.length == 0) {
     /* No hay favoritos */
     section.innerHTML = '<p>No hay datos en favoritos<p/>'
 } else {
-    for (let i = 0; i < favoritos.length; i++) {
+    for (let i = 0; i < favorito.length; i++) {
    
-        let url =`https://api.themoviedb.org/3/movie/76341?api_key=${apiKey}`;
+        let url =`https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=en-US`;
     
         fetch(url)
         .then(function(respuesta) {
@@ -43,11 +43,11 @@ if (favoritos == null || favoritos.length == 0) {
         .then(function(data) {
 
           peliculasFavoritos += ` <article >
-            <a href="./detalle-pelicula.html?id=${peliculas.id}"> <img src="https://image.tmdb.org/t/p/w500/${peliculas.poster_path}"
-            alt=" foto poster ${peliculas.title}"> </a>
-            <p class="nombrePeli">${peliculas.title}</p>
-            <p>  Fecha de estreno: ${peliculas.release_date} </p>
-            <a href="./detalle-pelicula.html?id=${peliculas.id}">
+            <a href="./detalle-pelicula.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}"
+            alt=" foto poster ${data.title}"> </a>
+            <p class="nombrePeli">${data.title}</p>
+            <p>  Fecha de estreno: ${data.release_date} </p>
+            <a href="./detalle-pelicula.html?id=${data.id}">
                 <button type="" class="verMas">Ver mas</button>
             </a>
         </article>`
