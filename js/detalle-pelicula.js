@@ -62,32 +62,28 @@ let icono = document.querySelector('.articleIcono') // agarra el corazon
 
 //creo un condicional para ver su hay algo gurdado en el local o si esta vacio
 if(localStorage.getItem("favoritos" == null)){
-     let favoritos=[] //creo una variable vacia para un array
-     localStorage.getItem("favoritos", JSON.stringify(favoritos))// guarda el array en la variable fav del local
+     let arrayIdPeliculas=[] //creo una variable vacia para un array
+     localStorage.getItem("favoritos", JSON.stringify(arrayIdPeliculas))// guarda el array en la variable fav del local
 } else{ 
      let array = JSON.parse(localStorage.getItem("favoritos")) //si existe un array lo traemos
 }
-
-//if (recuperoStorage != null) {
-//    favoritos =  JSON.parse(recuperoStorage)
-//}
-
 
 
 icono.addEventListener("click", function(e) {
     e.preventDefault();
 
-    if (favoritos.includes(id)) {
-       let indice = favoritos.indexOf(id)
-       favoritos.splice(indice, 1);
+    let array = JSON.parse(localStorage.getItem("favoritos")) //trae el array
+    if (array.indexOf(id) != 1) { // si esta en el array
+       let posicion = array.indexOf(id); //busca la posicion
+       array.splice(posicion, 1) //lo borra
+       localStorage.getItem("favoritos", JSON.stringify(array)) //guardamos en el array vacio
        
-    }else{
-        favoritos.push(id)
+    }else{ //si no esta en el array
+        array.push(id) //agregamos al array
         icono.innerText = "Quitar de favoritos"
+        localStorage.getItem("favoritos", JSON.stringify(array)) //lo guardamos
     }
 
-    let favsToString = JSON.stringify(favoritos);
-    localStorage.setItem("favoritos", favsToString )
 })
 
 
