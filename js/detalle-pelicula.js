@@ -59,12 +59,19 @@ form.addEventListener('submit', function(e){
 // favoritos
 
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
-let favoritos=[]
-let recuperoStorage = localStorage.getItem("favoritos") 
 
-if (recuperoStorage != null) {
-    favoritos =  JSON.parse(recuperoStorage)
+//creo un condicional para ver su hay algo gurdado en el local o si esta vacio
+if(localStorage.getItem("favoritos" == null)){
+     let favoritos=[] //creo una variable vacia para un array
+     localStorage.getItem("favoritos", JSON.stringify(favoritos))// guarda el array en la variable fav del local
+} else{ 
+     let array = JSON.parse(localStorage.getItem("favoritos")) //si existe un array lo traemos
 }
+
+//if (recuperoStorage != null) {
+//    favoritos =  JSON.parse(recuperoStorage)
+//}
+
 
 
 icono.addEventListener("click", function(e) {
