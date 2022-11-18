@@ -9,9 +9,8 @@ console.log(id);
 /*DOM*/
 let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
-let reviews = document.querySelector('.reviewsSeries')
 let sectionDetSeries = document.querySelector('.sectionDetSeries')
-
+let reviewsDeSeries = document.querySelector('.series')
 
 fetch(url)
      .then (function(response){
@@ -130,18 +129,19 @@ fetch(urlReviewsSeries)
      .then(function (data) {
           console.log(data);
 
-          reviewsUsuarios = ''
+          reviewsUsuariosSeries = ''
           for (i = 0; i < 3; i++) {
-               reviewsUsuarios += `<h2> Autor: ${data.results[i].author}</h2>
+               reviewsUsuariosSeries += `<h2> Autor: ${data.results[i].author}</h2>
                                         <h3> Comentario: ${data.results[i].content}</h3>`
           }
 
-          reviews.innerHTML = reviewsUsuarios;
+          reviewsDeSeries.innerHTML = reviewsUsuariosSeries;
 
      })
      .catch(function (errores) {
           console.log(errores);
      });
+
 //trailer//
 let url2 = `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${apiKey}&language=en-US`
 let queryString = location.search; //cadena de texto

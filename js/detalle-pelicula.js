@@ -131,10 +131,8 @@ fetch(url2)
      })
      .then(function (data) {
           console.log(data)
-          let listaTrailers = document.querySelector('.boton')
           let resultado = data.results
-          listaTrailers.innerHtml = ` <iframe src="https://api.themoviedb.org/${resultado.id}/movie/12/videos?api_key=${apiKey}&language=en-US" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
-
+          listaTrailers.innerHtml = "<h1>Quitar de favoritos</h1>"
      })
      .catch(function (errores) {
           console.log(errores);
