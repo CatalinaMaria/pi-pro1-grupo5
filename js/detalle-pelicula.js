@@ -1,20 +1,22 @@
-let apiKey= "bfec0622d489778cd408f2f5942ce52d"
+let apiKey = "bfec0622d489778cd408f2f5942ce52d"
 let qs = location.search;
 let qsObj = new URLSearchParams(qs);
 let id = qsObj.get('id');
 let url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
+let urlReviews = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`
 
 /* DOM */
 let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')
 let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
+let reviews = document.querySelector('.reviews')
 
 fetch(url)
-     .then (function(response){
+     .then(function (response) {
           return response.json();
      })
-     .then (function(data){
+     .then(function (data) {
           console.log(data);
           let titulo = document.querySelector('.tituloPelicula')
           let estreno = document.querySelector('.fecha')
@@ -32,43 +34,61 @@ fetch(url)
           duracion.innerText = data.runtime
           rating.innerText = data.vote_average
           poster.src = ` https://image.tmdb.org/t/p/w500/${data.poster_path} `
-          for (i=0; i<data.genres.length; i++){
-               generosNombres += data.genres[i].name + " "  
+          for (i = 0; i < data.genres.length; i++) {
+               generosNombres += data.genres[i].name + " "
           }
-          generos.innerHTML += 
-         `<a href="./detalle-genero.html?id=${id}"> Generos: ${generosNombres}</a>
+          generos.innerHTML +=
+               `<a href="./detalle-genero.html?id=${id}"> Generos: ${generosNombres}</a>
 `
-     }) 
+     })
      .catch(function (errores) {
           console.log(errores);
-        });
+     });
 
+//reviews//
+fetch(urlReviews)
+     .then(function (response) {
+          return response.json();
+     })
+     .then(function (data) {
+          console.log(data);
 
+          reviewsUsuarios = ''
+          for (i = 0; i < 3; i++) {
+               reviewsUsuarios += `<h2> Autor: ${data.results[i].author}</h2>
+                                        <h3> Comentario: ${data.results[i].content}</h3>`
+          }
 
+          reviews.innerHTML = reviewsUsuarios;
 
+     })
+     .catch(function (errores) {
+          console.log(errores);
+     });
 
-form.addEventListener('submit', function(e){
+//buscador//ls
+form.addEventListener('submit', function (e) {
      e.preventDefault();
 
      console.log(campoBusqueda.value);
 
-     if(campoBusqueda.value == ''){
+     if (campoBusqueda.value == '') {
           alert('Debe ingresar alguna palabra');
-     } else if (campoBusqueda.value.length <= 3){
+     } else if (campoBusqueda.value.length <= 3) {
           alert('Ingresar mas de 3 caracteres');
-     } else{
+     } else {
           this.submit();
      }
 })
 
 
-let arrayIdPeliculas=[]
+let arrayIdPeliculas = []
 let recuperoStorage = localStorage.getItem("favoritosPeliculas");
 
 //creo un condicional para ver su hay algo gurdado en el local o si esta vacio
-if(recuperoStorage != null){
+if (recuperoStorage != null) {
      arrayIdPeliculas = JSON.parse(recuperoStorage);
-} 
+}
 
 
 if (arrayIdPeliculas.includes(id)) {
@@ -76,29 +96,29 @@ if (arrayIdPeliculas.includes(id)) {
 }
 
 
-icono.addEventListener("click", function(e) {
-    e.preventDefault();
+icono.addEventListener("click", function (e) {
+     e.preventDefault();
 
-    if (arrayIdPeliculas.includes(id)) { // si esta en el array
-       let indice = arrayIdPeliculas.indexOf(id); //busca la posicion
-       arrayIdPeliculas.splice(indice, 1) //lo borra
-       icono.innerHTML = "<span>Agregar a favoritos</span>"
+     if (arrayIdPeliculas.includes(id)) { // si esta en el array
+          let indice = arrayIdPeliculas.indexOf(id); //busca la posicion
+          arrayIdPeliculas.splice(indice, 1) //lo borra
+          icono.innerHTML = "<span>Agregar a favoritos</span>"
 
-    }else{ //si no esta en el array
-        arrayIdPeliculas.push(id) //agregamos al array
-        icono.innerHTML = "<span>Quitar de favoritos</span>"
+     } else { //si no esta en el array
+          arrayIdPeliculas.push(id) //agregamos al array
+          icono.innerHTML = "<span>Quitar de favoritos</span>"
 
-    }
+     }
 
-    let favToString = JSON.stringify(arrayIdPeliculas);
-    localStorage.setItem('favoritosPeliculas', favToString)
+     let favToString = JSON.stringify(arrayIdPeliculas);
+     localStorage.setItem('favoritosPeliculas', favToString)
 
 
 })
 
 // Trailer
 
-let url2=`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
+let url2 = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`
 let queryString = location.search; //cadena de texto
 console.log(queryString);
 let queryStringObj = new URLSearchParams(queryString); //convierte en objeto
@@ -106,19 +126,18 @@ let variableId = queryStringObj.get("id");
 let listaTrailers = document.querySelector('.boton')
 
 fetch(url2)
-     .then (function(response){
+     .then(function (response) {
           return response.json();
      })
-     .then (function(data){
+     .then(function (data) {
           console.log(data)
           let listaTrailers = document.querySelector('.boton')
-          let resultado= data.results
+          let resultado = data.results
           listaTrailers.innerHtml = ` <iframe src="https://api.themoviedb.org/${resultado.id}/movie/12/videos?api_key=${apiKey}&language=en-US" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
 
      })
      .catch(function (errores) {
           console.log(errores);
-        });
+     });
 
-
-
+      
