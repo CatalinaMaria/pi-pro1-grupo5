@@ -9,7 +9,7 @@ let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')
 let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
-let reviews = document.querySelector('.reviews')
+let reviews = document.querySelector('.reviewsPelicula')
 let arrayIdPeliculas = []
 let recuperoStorage = localStorage.getItem("favoritosPeliculas");
 

@@ -3,15 +3,15 @@ let qs = location.search;
 let qsObj = new URLSearchParams(qs);
 let id = qsObj.get('id');
 let url = `https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=en-US`
-let urlReviewsSeries = `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`
-console.log(id); 
+let urlReviews = `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${apiKey}}&language=en-US&page=1`
 
 /*DOM*/
-let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')
+// let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')//
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
 let sectionDetSeries = document.querySelector('.sectionDetSeries')
-let reviewsDeSeries = document.querySelector('.series')
+let reviews = document.querySelector('.reviewsSerie')
 
+//contenido//
 fetch(url)
      .then (function(response){
           return response.json();
@@ -46,8 +46,7 @@ fetch(url)
         });
 
 
-// formulario de busqueda
-  
+// formulario de busqueda 
 let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
 
@@ -64,15 +63,13 @@ form.addEventListener('submit', function(e){
           this.submit();
      }
 })
-
+//favoritos//
 let favoritos=[]
-
 let recuperoStorage = localStorage.getItem("favoritos")
 
 if (recuperoStorage != null) {
     favoritos =  JSON.parse(recuperoStorage)
 }
-
 
 iconoCorazon.addEventListener("click", function(e) {
     e.preventDefault();
@@ -90,17 +87,13 @@ iconoCorazon.addEventListener("click", function(e) {
     localStorage.setItem("favoritos", favsToString )
 })
 
-// favoritos//
 if(recuperoStorage != null){
      arrayIdSeries = JSON.parse(recuperoStorage);
 } 
 
-
 if (arrayIdSeries.includes(id)) {
      icono.innerHTML = "<span>Agregar a favoritos</span>"
 }
-
-
 icono.addEventListener("click", function(e) {
     e.preventDefault();
 
@@ -122,20 +115,20 @@ icono.addEventListener("click", function(e) {
 })
 
 //reviews//
-fetch(urlReviewsSeries)
+fetch(urlReviews)
      .then(function (response) {
           return response.json();
      })
      .then(function (data) {
           console.log(data);
 
-          reviewsUsuariosSeries = ''
+          reviewsUsuarios = ''
           for (i = 0; i < 3; i++) {
-               reviewsUsuariosSeries += `<h2> Autor: ${data.results[i].author}</h2>
+               reviewsUsuarios += `<h2> Autor: ${data.results[i].author}</h2>
                                         <h3> Comentario: ${data.results[i].content}</h3>`
           }
 
-          reviewsDeSeries.innerHTML = reviewsUsuariosSeries;
+          reviews.innerHTML = reviewsUsuarios;
 
      })
      .catch(function (errores) {
