@@ -38,7 +38,7 @@ fetch(generosSeries)
 
      for (let i = 0; i < 5; i++) {
           let generosSeries = `<li class="listaGenero"> 
-          <a href="./detalle-genero.html?id=${info[i].id}&tipo=seriesynombre=${info[i].name}" class="genero"> ${info[i].name} </a>
+          <a href="./detalle-genero.html?id=${info[i].id}&seriesynombre=${info[i].name}" class="genero"> ${info[i].name} </a>
       </li>`
           seriesLista.innerHTML+=generosSeries
      }

@@ -23,6 +23,7 @@ form.addEventListener('submit', function(e){
 // listado de peliculas o series
 
 let queryString = location.search;
+console.log(queryString)
 let queryStringObject = new URLSearchParams(queryString);
 
 
@@ -35,8 +36,7 @@ let variableTipo = queryStringObject.get("tipo");
 console.log(variableTipo);
 
 //variable que me trae el nombre del genero
-let variableGenero = queryStringObject.get("nombre");
-console.log(variableGenero);
+let variableGenero = queryStringObject.get("seriesynombre");
 
 let url = "";
 let titulo = document.querySelector(".tituloResultado");
@@ -71,6 +71,7 @@ if (variableTipo == "peliculas") {
     });
 } else {
   url = `https://api.themoviedb.org/3/discover/tv?api_key=${apiKey}&with_genres=${variableId}`;
+  console.log(url)
   titulo.innerText = `${variableGenero}:Series`;
   fetch(url)
     .then(function (response) {
