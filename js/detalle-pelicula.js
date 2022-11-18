@@ -92,5 +92,26 @@ icono.addEventListener("click", function(e) {
 
 })
 
+// Trailer
+
+let url2=`https://api.themoviedb.org/${id}/movie/12/videos?api_key=${apiKey}&language=en-US`
+let queryString = location.search; //cadena de texto
+console.log(queryString);
+let queryStringObj = new URLSearchParams(queryString); //convierte en objeto
+let variableId = queryStringObj.get("id");
+let listaTrailers = object.querySelector('.divBoton')
+
+fetch(url2)
+     .then (function(response){
+          return response.json();
+     })
+     .then (function(data){
+          listaTrailers.innerHtml = ` <iframe src="https://api.themoviedb.org/${data.id[0]}/movie/12/videos?api_key=${apiKey}&language=en-US" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
+
+     })
+     .catch(function (errores) {
+          console.log(errores);
+        });
+
 
 
