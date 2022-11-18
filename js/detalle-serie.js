@@ -142,3 +142,25 @@ fetch(urlReviewsSeries)
      .catch(function (errores) {
           console.log(errores);
      });
+//trailer//
+let url2 = `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${apiKey}&language=en-US`
+let queryString = location.search; //cadena de texto
+console.log(queryString);
+let queryStringObj = new URLSearchParams(queryString); //convierte en objeto
+let variableId = queryStringObj.get("id");
+let listaTrailers = document.querySelector('.boton')
+
+fetch(url2)
+     .then(function (response) {
+          return response.json();
+     })
+     .then(function (data) {
+          console.log(data)
+          let listaTrailers = document.querySelector('.boton')
+          let resultado = data.results
+          listaTrailers.innerHtml = ` <iframe src="https://api.themoviedb.org/3/tv/${resultado.id}/videos?api_key=${apiKey}&language=en-US" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
+
+     })
+     .catch(function (errores) {
+          console.log(errores);
+     });
