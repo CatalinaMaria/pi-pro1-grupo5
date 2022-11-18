@@ -37,12 +37,12 @@ console.log(variableTipo);
 
 //variable que me trae el nombre del genero
 let variableGenero = queryStringObject.get("seriesynombre");
-
+let variableGeneroPeliculas= queryStringObject.get("seriesynombre")
 let url = "";
 let titulo = document.querySelector(".tituloResultado");
 let section = document.querySelector(".cajapadre1");
 
-if (variableTipo == "peliculas") {
+if (variableTipo == "pelicula") {
   url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US&with_genres=${variableId}`;
   titulo.innerText = `${variableGenero} : Peliculas`;
   fetch(url)
@@ -99,3 +99,5 @@ if (variableTipo == "peliculas") {
       console.log("Error: " + error);
     });
 }
+
+
