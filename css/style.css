@@ -137,11 +137,11 @@ a {
 }
 .poster{
     height: auto;
-    width: 80%;
+    width: 20%;
     border-radius: 8%;
-    margin-top: 11vh;
-    margin-bottom: 16vh;
-    margin-left: 10vw;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    margin-left: 2vw;
     margin-right: 2vw;
 }
 .tituloPelicula{
@@ -154,7 +154,7 @@ a {
     font-size: 20px;
     margin-bottom: 1vh;
     font-weight: normal;
-    align-self: flex-start;
+    align-self: center;
 }
 
 .descripcionPelicula{
