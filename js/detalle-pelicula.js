@@ -4,13 +4,15 @@ let qsObj = new URLSearchParams(qs);
 let id = qsObj.get('id');
 let url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
 let urlReviews = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`
-
 /* DOM */
 let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')
 let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
 let reviews = document.querySelector('.reviews')
+let arrayIdPeliculas = []
+let recuperoStorage = localStorage.getItem("favoritosPeliculas");
+
 
 fetch(url)
      .then(function (response) {
@@ -82,19 +84,14 @@ form.addEventListener('submit', function (e) {
 })
 
 
-let arrayIdPeliculas = []
-let recuperoStorage = localStorage.getItem("favoritosPeliculas");
-
 //creo un condicional para ver su hay algo gurdado en el local o si esta vacio
 if (recuperoStorage != null) {
      arrayIdPeliculas = JSON.parse(recuperoStorage);
 }
 
-
 if (arrayIdPeliculas.includes(id)) {
      icono.innerHTML = "<span>Agregar a favoritos</span>"
 }
-
 
 icono.addEventListener("click", function (e) {
      e.preventDefault();

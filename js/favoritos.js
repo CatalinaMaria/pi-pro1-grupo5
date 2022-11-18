@@ -19,7 +19,7 @@ form.addEventListener('submit', function(e){
 })
 
 /* Recupero el storage */
-let recuperoStorage = localStorage.getItem("favoritosPeliculas");
+let recuperoStorage = localStorage.getItem("favToString");
 
 /* transformar el json (string) en obj o un array */
 let favoritos = JSON.parse(recuperoStorage);

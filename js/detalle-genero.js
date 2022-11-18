@@ -1,10 +1,24 @@
 let apiKey= "bfec0622d489778cd408f2f5942ce52d"
-
 // formulario de busqueda
-  
 let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
+let queryString = location.search;
+console.log(queryString)
+let queryStringObject = new URLSearchParams(queryString);
+//variable que trae el id
+let variableId = queryStringObject.get("id");
+console.log(variableId);
+//variable que trae el tipo, si es peli o serie
+let variableTipo = queryStringObject.get("tipo");
+console.log(variableTipo);
+//variable que me trae el nombre del genero
+let variableGenero = queryStringObject.get("seriesynombre");
+let variableGeneroPeliculas= queryStringObject.get("seriesynombre")
+let url = "";
+let titulo = document.querySelector(".tituloResultado");
+let section = document.querySelector(".cajapadre1");
 
+// buscador
 form.addEventListener('submit', function(e){
      e.preventDefault();
 
@@ -20,27 +34,7 @@ form.addEventListener('submit', function(e){
 })
 
 
-// listado de peliculas o series
-
-let queryString = location.search;
-console.log(queryString)
-let queryStringObject = new URLSearchParams(queryString);
-
-
-//variable que trae el id
-let variableId = queryStringObject.get("id");
-console.log(variableId);
-
-//variable que trae el tipo, si es peli o serie
-let variableTipo = queryStringObject.get("tipo");
-console.log(variableTipo);
-
-//variable que me trae el nombre del genero
-let variableGenero = queryStringObject.get("seriesynombre");
-let variableGeneroPeliculas= queryStringObject.get("seriesynombre")
-let url = "";
-let titulo = document.querySelector(".tituloResultado");
-let section = document.querySelector(".cajapadre1");
+// Detalle genero
 
 if (variableTipo == "pelicula") {
   url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US&with_genres=${variableId}`;
@@ -61,8 +55,8 @@ if (variableTipo == "pelicula") {
         <p>  Fecha de estreno: ${info[i].release_date} </p>
         <a href="./detalle-pelicula.html?id=${info[i].id}">
            <button type="" class="verMas">Ver mas</button>
-        </a>
-    </article>`
+            </a>
+        </article>`
         section.innerHTML += peliculaFav;
       }
     })
@@ -90,8 +84,8 @@ if (variableTipo == "pelicula") {
         <p>  Fecha de estreno: ${info[i].first_air_date} </p>
         <a href="./detalle-serie.html?id=${info[i].id}">
         <button type="" class="verMas">Ver mas</button>
-    </a>
-</article>`;
+          </a>
+        </article>`;
         section.innerHTML += serieFav;
       }
     })
