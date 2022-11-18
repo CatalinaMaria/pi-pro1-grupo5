@@ -19,6 +19,7 @@ fetch(url)
           let duracion = document.querySelector('.duracion')
           let rating = document.querySelector('.rating')
           let generos = document.querySelector('.generoPelicula')
+          let poster = document.querySelector('.poster')
           let generosNombres = ''
 
           titulo.innerText = data.original_title
@@ -26,13 +27,14 @@ fetch(url)
           sinopsisPelicula.innerText = data.overview
           duracion.innerText = data.runtime
           rating.innerText = data.vote_average
+          poster.src = ` https://image.tmdb.org/t/p/w500/${data.poster_path} `
           for (i=0; i<data.genres.length; i++){
                generosNombres += data.genres[i].name + " "  
           }
           generos.innerHTML += 
          `<a href="./detalle-genero.html?id=${id}"> Generos: ${generosNombres}</a>
 `
-     }) // no hacer un for, sino cambiarlo por titulo.innerText...
+     }) 
      .catch(function (errores) {
           console.log(errores);
         });
