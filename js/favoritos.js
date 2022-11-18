@@ -18,40 +18,40 @@ form.addEventListener('submit', function(e){
      }
 })
 
-let recuperoStorage = localStorage.getItem("id");
-let qs = location.search;
-let qsObj = new URLSearchParams(qs);
-let id = qsObj.get('id');
-let favorito = JSON.parse(recuperoStorage);
+/* Recupero el storage */
+let recuperoStorage = localStorage.getItem("favoritosPeliculas");
 
+/* transformar el json (string) en obj o un array */
+let favoritos = JSON.parse(recuperoStorage);
+    
 let section = document.querySelector('.favoritos');
 
-let peliculasFavoritos = '';
+let personajesFavoritos = '';
 
-if (favorito == null || favorito.length == 0) {
+if (favoritos == null || favoritos.length == 0) {
     /* No hay favoritos */
     section.innerHTML = '<p>No hay datos en favoritos<p/>'
 } else {
-    for (let i = 0; i < favorito.length; i++) {
+    for (let i = 0; i < favoritos.length; i++) {
    
-        let url =`https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=en-US`;
+        let url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${favoritos.id}&page=1&include_adult=false`;
+        ;
     
         fetch(url)
         .then(function(respuesta) {
             return respuesta.json();
         })
         .then(function(data) {
-
-          peliculasFavoritos += ` <article >
-            <a href="./detalle-pelicula.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}"
-            alt=" foto poster ${data.title}"> </a>
-            <p class="nombrePeli">${data.title}</p>
-            <p>  Fecha de estreno: ${data.release_date} </p>
-            <a href="./detalle-pelicula.html?id=${data.id}">
-                <button type="" class="verMas">Ver mas</button>
-            </a>
+            let arrayPelis= data.result
+            misFavoritos += `<article >
+            <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${arrayPelis.poster_path}" alt=""> </a>
+            <p class="nombrePeli">Titulo: ${arrayPelis.title}</p>
+            <p>  Fecha de estreno: ${arrayPelis.release_date}</p>
+            <form action="detalle-pelicula.html">
+                <button type="" class="verMas">Ver más</button>
+            </form>
         </article>`
-            section.innerHTML = peliculasFavoritos;
+            section.innerHTML = misFavoritos;
             return data;
         })
         .catch(function(error) {
@@ -63,4 +63,3 @@ if (favorito == null || favorito.length == 0) {
 
     
 }
-
