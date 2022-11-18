@@ -13,6 +13,7 @@ fetch(url)
      })
      .then (function(data){
           console.log(data);
+ 
           for (let i = 0; i<1; i++)
           sectionDetPeliculas.innerHTML += `
           <article class="articlePoster">
@@ -26,7 +27,7 @@ fetch(url)
               <p class="duracion"> Duracion: ${data.runtime}</p>
               <p class="rating">Rating: ${data.vote_average} %</p>
       </article>`
-     })
+     }) // no hacer un for, sino cambiarlo por titulo.innerText...
      .catch(function (errores) {
           console.log(errores);
         });

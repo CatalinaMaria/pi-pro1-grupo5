@@ -19,6 +19,10 @@ form.addEventListener('submit', function(e){
      }
 })
 
+
+// listado de peliculas o series
+
 let queryString = location.search;
 let queryStringObject = new URLSearchParams(queryString);
+
 
