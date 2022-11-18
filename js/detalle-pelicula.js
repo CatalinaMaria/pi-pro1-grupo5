@@ -13,20 +13,25 @@ fetch(url)
      })
      .then (function(data){
           console.log(data);
- 
-          for (let i = 0; i<1; i++)
-          sectionDetPeliculas.innerHTML += `
-          <article class="articlePoster">
-          <img src=" " alt="" class="poster">
-      </article>
-      <article class="article">
-          <h1 class="tituloPelicula">${data.original_title}</h1>
-          <h2 class="fecha">Fecha de estreno: ${data.release_date} </h2>
-          <p class="descripcionPelicula">Sinopsis: ${data.overview} </p>
-          <p class="generoPelicula">Genero: ${data.genres}</p>
-              <p class="duracion"> Duracion: ${data.runtime}</p>
-              <p class="rating">Rating: ${data.vote_average} %</p>
-      </article>`
+          let titulo = document.querySelector('.tituloPelicula')
+          let estreno = document.querySelector('.fecha')
+          let sinopsisPelicula = document.querySelector('.descripcionPelicula')
+          let duracion = document.querySelector('.duracion')
+          let rating = document.querySelector('.rating')
+          let generos = document.querySelector('.generoPelicula')
+          let generosNombres = ''
+
+          titulo.innerText = data.original_title
+          estreno.innerText = data.release_date
+          sinopsisPelicula.innerText = data.overview
+          duracion.innerText = data.runtime
+          rating.innerText = data.vote_average
+          for (i=0; i<data.genres.length; i++){
+               generosNombres += data.genres[i].name + " "  
+          }
+          generos.innerHTML += 
+         `<a href="./detalle-genero.html?id=${id}"> Generos: ${generosNombres}</a>
+`
      }) // no hacer un for, sino cambiarlo por titulo.innerText...
      .catch(function (errores) {
           console.log(errores);
