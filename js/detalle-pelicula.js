@@ -109,9 +109,6 @@ if (recuperoStorage != null) {
      arrayIdPeliculas = JSON.parse(recuperoStorage);
 }
 
-if (arrayIdPeliculas.includes(id)) {
-     icono.innerHTML = "<span>Agregar a favoritos</span>"
-}
 
 icono.addEventListener("click", function (e) {
      e.preventDefault();
@@ -128,8 +125,8 @@ icono.addEventListener("click", function (e) {
      }
 
      let favToString = JSON.stringify(arrayIdPeliculas);
+     console.log(favToString)
      localStorage.setItem('favoritosPeliculas', favToString)
-
 
 })
 
