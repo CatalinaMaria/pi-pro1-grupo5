@@ -4,6 +4,7 @@ let qsObj = new URLSearchParams(qs);
 let id = qsObj.get('id');
 let url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`
 let urlReviews = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`
+let urlPlataformas = `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${apiKey}`
 /* DOM */
 let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')
 let form = document.querySelector('form')
@@ -28,6 +29,8 @@ fetch(url)
           let generos = document.querySelector('.generoPelicula')
           let poster = document.querySelector('.poster')
           let generosNombres = ''
+          
+
 
           poster.src = ` https://image.tmdb.org/t/p/w500/${data.poster_path} `
           titulo.innerText = data.original_title
@@ -46,6 +49,23 @@ fetch(url)
      .catch(function (errores) {
           console.log(errores);
      });
+//plataformas//
+fetch(urlPlataformas)
+     .then(function (response) {
+          return response.json();
+     })
+     .then(function (data) {
+          console.log(data);
+          let plataformas = document.querySelector('.plataformas')
+          plataformas.innerText = data.results.AR.flatrate.logo_path
+
+     })
+     .catch(function (errores) {
+          console.log(errores);
+     });
+
+
+
 
 //reviews//
 fetch(urlReviews)
