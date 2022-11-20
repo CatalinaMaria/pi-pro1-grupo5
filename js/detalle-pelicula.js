@@ -57,7 +57,7 @@ fetch(urlPlataformas)
      .then(function (data) {
           console.log(data);
           let plataformas = document.querySelector('.plataformas')
-          plataformas.innerText = data.results.AR.flatrate.logo_path
+          plataformas.innerText = data.results
 
      })
      .catch(function (errores) {

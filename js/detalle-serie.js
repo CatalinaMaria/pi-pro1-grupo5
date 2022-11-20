@@ -3,13 +3,11 @@ let qs = location.search;
 let qsObj = new URLSearchParams(qs);
 let id = qsObj.get('id');
 let url = `https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=en-US`
-let urlReviews = `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${apiKey}}&language=en-US&page=1`
 
 /*DOM*/
 // let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')//
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
 let sectionDetSeries = document.querySelector('.sectionDetSeries')
-let reviews = document.querySelector('.reviewsSerie')
 
 //contenido//
 fetch(url)
@@ -84,7 +82,7 @@ iconoCorazon.addEventListener("click", function(e) {
     }
 
     let favsToString = JSON.stringify(favoritos);
-    localStorage.setItem("favoritos", favsToString )
+   localStorage.setItem("favoritos", favsToString )
 })
 
 if(recuperoStorage != null){
@@ -114,27 +112,6 @@ icono.addEventListener("click", function(e) {
 
 })
 
-//reviews//
-fetch(urlReviews)
-     .then(function (response) {
-          return response.json();
-     })
-     .then(function (data) {
-          console.log(data);
-
-          reviewsUsuarios = ''
-          for (i = 0; i < 3; i++) {
-               reviewsUsuarios += `<h2> Autor: ${data.results[i].author}</h2>
-                                        <h3> Comentario: ${data.results[i].content}</h3>`
-          }
-
-          reviews.innerHTML = reviewsUsuarios;
-
-     })
-     .catch(function (errores) {
-          console.log(errores);
-     });
-
 //trailer//
 let url2 = `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${apiKey}&language=en-US`
 let queryString = location.search; //cadena de texto
@@ -157,3 +134,26 @@ fetch(url2)
      .catch(function (errores) {
           console.log(errores);
      });
+
+ //reviews//
+ let urlReviews = `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`
+ let reviews = document.querySelector('.reviewsSerie')
+
+ fetch(urlReviews)
+     .then(function(response){
+          return response.json();
+     })
+     .then (function(data){
+          console.log(data)
+          reviewsUsuarios = ''
+          for (i = 0; i <1; i++){
+               reviewsUsuarios += `
+               <h2> Autor: ${data.results[i].author}</h2>
+                                        <h3> Comentario: ${data.results[i].content}</h3>
+               `
+          }
+               reviews.innerHTML = reviewsUsuarios;
+     })
+     .catch(function(errores){
+          console.log(errores);
+     })
