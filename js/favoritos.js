@@ -23,7 +23,7 @@ let recuperoStorage = localStorage.getItem("favoritosPeliculas");
 
 /* transformar el json (string) en obj o un array */
 let favoritos = JSON.parse(recuperoStorage);   
-let section = document.querySelector('.subtitulo')
+let section = document.querySelector('.favoritos')
 let misFavoritos = '';
 
 if (favoritos == null || favoritos.length == 0) {
