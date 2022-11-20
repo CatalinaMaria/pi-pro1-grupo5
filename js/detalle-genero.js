@@ -37,7 +37,7 @@ form.addEventListener('submit', function(e){
 // Detalle genero
 
 if (variableTipo == "pelicula") {
-  url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US&with_genres=${variableId}`;
+  url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${variableId}`;
   titulo.innerText = `${variableGenero} : Peliculas`;
   fetch(url)
     .then(function (response) {
