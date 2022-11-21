@@ -19,20 +19,27 @@ form.addEventListener('submit', function(e){
 })
 
 /* Recupero el storage */
-let recuperoStorage = localStorage.getItem("favoritosPeliculas");
-
+let recuperoStoragePelicula = localStorage.getItem("peliculasFav");
+let recuperoStorageSerie = localStorage.getItem("seriesFav");
 /* transformar el json (string) en obj o un array */
-let favoritos = JSON.parse(recuperoStorage);   
-let section = document.querySelector('.favoritos')
-let misFavoritos = '';
+let favoritosPelis = JSON.parse(recuperoStoragePelicula);   
+let favoritosSeries = JSON.parse(recuperoStorageSerie); 
 
-if (favoritos == null || favoritos.length == 0) {
+let listaPelis = document.querySelector('.Peliculasfavoritos')
+let listaSeries = document.querySelector('.Seriesfavoritos')
+let noListaPelis = document.querySelector('.NoPeliculasfavoritos')
+let noListaSeries = document.querySelector('.NoSeriesfavoritos')
+
+// Peliculas
+let pelicualsF = "";
+
+if (favoritosPelis == null || favoritosPelis.length == 0) {
     /* No hay favoritos */
-    section.innerHTML = '<p>No hay datos en favoritos<p/>'
+    noListaPelis.innerHTML = '<p>No hay datos en favoritos<p/>'
 } else {
-    for (let i = 0; i < favoritos.length; i++) {
+    for (let i = 0; i < favoritosPelis.length; i++) {
    
-        let urlfav = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${favoritos[i]}&page=1&include_adult=false`;
+        let urlfav = `https://api.themoviedb.org/3/movie/${favoritosPelis[i]}?api_key=${apiKey}&language=en-US`;
         ;
     
         fetch(urlfav)
@@ -41,15 +48,15 @@ if (favoritos == null || favoritos.length == 0) {
         })
         .then(function(data) {
             console.log(data)
-            misFavoritos += `<article >
-                    <a href="./detalle-pelicula.html"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
-                    <p class="nombrePeli">Titulo: ${data.title}</p>
-                <p>  Fecha de estreno: ${data.release_date}</p>
-                <form action="detalle-pelicula.html">
-                <button type="" class="verMas">Ver más</button>
-                </form>
-                </article>`
-                section.innerHTML = misFavoritos;
+            pelicualsF += `<article >
+                     <a href="./detalle-pelicula.html?idPelicula=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
+                        <p class="nombrePeli">Titulo: ${data.title}</p>
+                    <p>  Fecha de estreno: ${data.release_date}</p>
+                        <form action="detalle-pelicula.html?idPelicula=${data.id}">
+                    <button type="" class="verMas">Ver más</button>
+                    </form>
+                    </article>`
+            listaPelis.innerHTML = pelicualsF;
                 return data;
             })
             .catch(function(error) {
