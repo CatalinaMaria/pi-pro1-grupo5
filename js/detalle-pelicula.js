@@ -11,8 +11,7 @@ let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
 let reviews = document.querySelector('.reviewsPelicula')
-let arrayIdPeliculas = []
-let recuperoStorage = localStorage.getItem("favoritosPeliculas");
+
 
 
 fetch(url)
@@ -105,28 +104,33 @@ form.addEventListener('submit', function (e) {
 
 
 //creo un condicional para ver su hay algo gurdado en el local o si esta vacio
+let peliculasFav = [];
+let recuperoStorage = localStorage.getItem("peliculasFav");
 if (recuperoStorage != null) {
-     arrayIdPeliculas = JSON.parse(recuperoStorage);
+     peliculasFav = JSON.parse(recuperoStorage);
+}
+
+if (peliculasFav.includes(id)) {
+     icono.innerText = "Quitar de favoritos";
 }
 
 
 icono.addEventListener("click", function (e) {
      e.preventDefault();
 
-     if (arrayIdPeliculas.includes(id)) { // si esta en el array
-          let indice = arrayIdPeliculas.indexOf(id); //busca la posicion
-          arrayIdPeliculas.splice(indice, 1) //lo borra
-          icono.innerHTML = "<span>Agregar a favoritos</span>"
+     if (peliculasFav.includes(id)) { // si esta en el array
+          let indice = peliculasFav.indexOf(id); //busca la posicion
+          peliculasFav.splice(indice, 1) //lo borra
+          icono.innerText = "Agregar a favoritos"
 
      } else { //si no esta en el array
-          arrayIdPeliculas.push(id) //agregamos al array
-          icono.innerHTML = "<span>Quitar de favoritos</span>"
+          peliculasFav.push(id) //agregamos al array
+          icono.innerText = "Quitar de favoritos"
 
      }
 
-     let favToString = JSON.stringify(arrayIdPeliculas);
-     console.log(favToString)
-     localStorage.setItem('favoritosPeliculas', favToString)
+     let favToString = JSON.stringify(peliculasFav);
+     localStorage.setItem("peliculasFav", favToString)
 
 })
 
