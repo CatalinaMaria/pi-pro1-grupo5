@@ -62,53 +62,33 @@ form.addEventListener('submit', function(e){
      }
 })
 //favoritos//
-let favoritos=[]
-let recuperoStorage = localStorage.getItem("favoritos")
-
+let seriesFav = [];
+let recuperoStorage = localStorage.getItem("seriesFav");
 if (recuperoStorage != null) {
-    favoritos =  JSON.parse(recuperoStorage)
+     seriesFav = JSON.parse(recuperoStorage);
 }
 
-iconoCorazon.addEventListener("click", function(e) {
-    e.preventDefault();
-
-    if (favoritos.includes(id)) {
-       let indice = favoritos.indexOf(id)
-       favoritos.splice(indice, 1);
-       
-    }else{
-        favoritos.push(id)
-        iconoCorazon.innerText = "Quitar de favoritos"
-    }
-
-    let favsToString = JSON.stringify(favoritos);
-   localStorage.setItem("favoritos", favsToString )
-})
-
-if(recuperoStorage != null){
-     arrayIdSeries = JSON.parse(recuperoStorage);
-} 
-
-if (arrayIdSeries.includes(id)) {
-     icono.innerHTML = "<span>Agregar a favoritos</span>"
+if (seriesFav.includes(id)) {
+     icono.innerText = "Quitar de favoritos";
 }
-icono.addEventListener("click", function(e) {
-    e.preventDefault();
 
-    if (arrayIdSeries.includes(id)) { // si esta en el array
-       let indice = arrayIdSeries.indexOf(id); //busca la posicion
-       arrayIdSeries.splice(indice, 1) //lo borra
-       icono.innerHTML = "<span>Agregar a favoritos</span>"
 
-    }else{ //si no esta en el array
-        arrayIdSeries.push(id) //agregamos al array
-        icono.innerHTML = "<span>Quitar de favoritos</span>"
+icono.addEventListener("click", function (e) {
+     e.preventDefault();
 
-    }
+     if (seriesFav.includes(id)) { // si esta en el array
+          let indice = seriesFav.indexOf(id); //busca la posicion
+          seriesFav.splice(indice, 1) //lo borra
+          icono.innerText = "Agregar a favoritos"
 
-    let favToString = JSON.stringify(arrayIdSeries);
-    localStorage.setItem('favoritosSeries', favToString)
+     } else { //si no esta en el array
+          seriesFav.push(id) //agregamos al array
+          icono.innerText = "Quitar de favoritos"
 
+     }
+
+     let favToString = JSON.stringify(seriesFav);
+     localStorage.setItem("seriesFav", favToString)
 
 })
 
