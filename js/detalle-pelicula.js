@@ -141,7 +141,7 @@ let queryString = location.search; //cadena de texto
 console.log(queryString);
 let queryStringObj = new URLSearchParams(queryString); //convierte en objeto
 let variableId = queryStringObj.get("id");
-let listaTrailers = document.querySelector('.boton')
+let listaTrailers = document.querySelector('.trailer')
 
 fetch(url2)
      .then(function (response) {
@@ -150,10 +150,27 @@ fetch(url2)
      .then(function (data) {
           console.log(data)
           let resultado = data.results
-          listaTrailers.innerHtml = "<h1>Quitar de favoritos</h1>"
-     })
+          let contenidoTrailer= "";
+          if (resultado == null || resultado.length == 0 || resultado == undefined) {
+               contenidoTrailer= "La pelicula no tiene trailer"
+               listaTrailers= contenidoTrailer
+           } else {
+               for (let i = 0; i < resultado.length; i++) {
+                    if (resultado[i].type =="Trailer"){
+                         contenidoTrailer= `<h2>Trailer</h2>
+                            <iframe width=100% height="315" src="https://www.youtube.com/embed/${resultado[i].key}"
+                            title="Youtube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope: picture-in-picture"
+                            allowfullscreen></iframe>`}
+
+                    
+               }}
+          if (contenidoTrailer==""){
+               contenidoTrailer= `<h2>La pelicula no tiene trailer</h2>`} 
+     listaTrailers.innerHTML=contenidoTrailer
+     return data
+          } )
      .catch(function (errores) {
           console.log(errores);
-     });
+     })
 
-      
