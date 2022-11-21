@@ -56,7 +56,11 @@ fetch(urlPlataformas)
      .then(function (data) {
           console.log(data);
           let plataformas = document.querySelector('.plataformas')
-          plataformas.innerText = data.results
+          // plataformas.innerText += '' + data.results.US.buy
+     //TERMINAR//
+
+
+
 
      })
      .catch(function (errores) {
