@@ -52,9 +52,9 @@ if (favoritosPelis == null || favoritosPelis.length == 0) {
                      <a href="./detalle-pelicula.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
                         <p class="nombrePeli">Titulo: ${data.title}</p>
                     <p>  Fecha de estreno: ${data.release_date}</p>
-                        <form action="detalle-pelicula.html?id=${data.id}">
-                    <button type="" class="verMas">Ver más</button>
-                    </form>
+                    <a href="./detalle-pelicula.html?id=${data.id}">
+                    <button type="" class="verMas">Ver mas</button>
+                    </a>
                     </article>`
             listaPelis.innerHTML = pelicualsF;
                 return data;
@@ -89,12 +89,12 @@ if (favoritosSeries == null || favoritosSeries.length == 0) {
         .then(function(data) {
             console.log(data)
             seriesF += `<article >
-                     <a href="./detalle-pelicula.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
+                     <a href="./detalle-serie.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
                         <p class="nombrePeli">Titulo: ${data.title}</p>
                     <p>  Fecha de estreno: ${data.release_date}</p>
-                        <form action="detalle-pelicula.html?id=${data.id}">
-                    <button type="" class="verMas">Ver más</button>
-                    </form>
+                    <a href="./detalle-serie.html?id=${data.id}">
+                    <button type="" class="verMas">Ver mas</button>
+                    </a>
                     </article>`
                 listaSeries.innerHTML = seriesF;
                 return data;
