@@ -49,10 +49,10 @@ if (favoritosPelis == null || favoritosPelis.length == 0) {
         .then(function(data) {
             console.log(data)
             pelicualsF += `<article >
-                     <a href="./detalle-pelicula.html?idPelicula=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
+                     <a href="./detalle-pelicula.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
                         <p class="nombrePeli">Titulo: ${data.title}</p>
                     <p>  Fecha de estreno: ${data.release_date}</p>
-                        <form action="detalle-pelicula.html?idPelicula=${data.id}">
+                        <form action="detalle-pelicula.html?id=${data.id}">
                     <button type="" class="verMas">Ver más</button>
                     </form>
                     </article>`
@@ -69,3 +69,43 @@ if (favoritosPelis == null || favoritosPelis.length == 0) {
         
     }
     
+
+ // Series
+let seriesF = "";
+
+if (favoritosSeries == null || favoritosSeries.length == 0) {
+    /* No hay favoritos */
+    noListaSeries.innerHTML = '<p>No hay datos en favoritos<p/>'
+} else {
+    for (let i = 0; i < favoritosSeries.length; i++) {
+   
+        let urlSeriefav = `https://api.themoviedb.org/3/tv/${favoritosSeries[i]}?api_key=${apiKey}&language=en-US`;
+        ;
+    
+        fetch(urlSeriefav)
+        .then(function(respuesta) {
+            return respuesta.json();
+        })
+        .then(function(data) {
+            console.log(data)
+            seriesF += `<article >
+                     <a href="./detalle-pelicula.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
+                        <p class="nombrePeli">Titulo: ${data.title}</p>
+                    <p>  Fecha de estreno: ${data.release_date}</p>
+                        <form action="detalle-pelicula.html?id=${data.id}">
+                    <button type="" class="verMas">Ver más</button>
+                    </form>
+                    </article>`
+                listaSeries.innerHTML = seriesF;
+                return data;
+            })
+            .catch(function(error) {
+                console.log(error);
+                return error;
+            });
+        
+        };
+    
+        
+    }
+       
