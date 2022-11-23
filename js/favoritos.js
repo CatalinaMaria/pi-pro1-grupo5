@@ -88,14 +88,15 @@ if (favoritosSeries == null || favoritosSeries.length == 0) {
         })
         .then(function(data) {
             console.log(data)
-            seriesF += `<article >
-                     <a href="./detalle-serie.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt=""> </a>
-                        <p class="nombrePeli">Titulo: ${data.title}</p>
-                    <p>  Fecha de estreno: ${data.release_date}</p>
-                    <a href="./detalle-serie.html?id=${data.id}">
-                    <button type="" class="verMas">Ver mas</button>
-                    </a>
-                    </article>`
+            seriesF += ` <article >
+                <a href="./detalle-serie.html?id=${data.id}"> <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}"
+                alt=" foto poster ${data.name}"> </a>
+                <p class="nombreSerie">${data.name}</p>
+                <p>  Fecha de estreno: ${data.first_air_date} </p>
+                <a href="./detalle-serie.html?id=${data.id}">
+                <button type="" class="verMas">Ver mas</button>
+                </a>
+                </article>`
                 listaSeries.innerHTML = seriesF;
                 return data;
             })
