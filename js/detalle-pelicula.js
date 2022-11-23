@@ -11,6 +11,7 @@ let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
 let reviews = document.querySelector('.reviewsPelicula')
+let plataformas = document.querySelector('.plataformas')
 
 
 
@@ -55,9 +56,18 @@ fetch(urlPlataformas)
      })
      .then(function (data) {
           console.log(data);
-          let plataformas = document.querySelector('.plataformas')
-          // plataformas.innerText += '' + data.results.US.buy
-     //TERMINAR//
+          let datosProvedor = data.results
+          let contenidoPlataformas = ''
+          
+          if (datosProvedor.US && datosProvedor.US.buy){
+               console.log(datosProvedor.US.buy)
+               let datosPla = datosProvedor.US.buy
+               for (let i = 0; i< datosPla; i ++)
+               contenidoPlataformas += ` <h4>${datosPla[i].provider_name}</h4>
+                                         <img src="https://image.tmdb.org/t/p/w500/${datosPla[i].logo_path} " alt="">
+               `
+               }
+               plataformas.innerHTML += contenidoPlataformas
 
 
 
