@@ -98,7 +98,7 @@ let queryString = location.search; //cadena de texto
 console.log(queryString);
 let queryStringObj = new URLSearchParams(queryString); //convierte en objeto
 let variableId = queryStringObj.get("id");
-let listaTrailers = document.querySelector('.boton')
+let listaTrailers = document.querySelector('.trailerSeries')
 
 fetch(url2)
      .then(function (response) {
@@ -106,14 +106,33 @@ fetch(url2)
      })
      .then(function (data) {
           console.log(data)
-          let listaTrailers = document.querySelector('.boton')
           let resultado = data.results
-          listaTrailers.innerHtml = ` <iframe src="https://api.themoviedb.org/3/tv/${resultado.id}/videos?api_key=${apiKey}&language=en-US" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
+          let contenidoTrailerSeries= "";
+          if (resultado == null || resultado.length == 0 || resultado == undefined) {
+               contenidoTrailerSeries= "La serie no tiene trailer"
+               listaTrailers= contenidoTrailerSeries
+           } else {
+               for (let i = 0; i < resultado.length; i++) {
+                    if (resultado[i].type =="Trailer"){
+                         contenidoTrailerSeries= `<h2>Trailer</h2>
+                            <iframe width=100% height="315" src="https://www.youtube.com/embed/${resultado[i].key}"
+                            title="Youtube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope: picture-in-picture"
+                            allowfullscreen></iframe>`}
+                            
 
-     })
+
+                    
+               }}
+          if (contenidoTrailerSeries==""){
+               contenidoTrailerSeries= `<h2>La serie no tiene trailer</h2>`} 
+     listaTrailers.innerHTML=contenidoTrailerSeries
+     return data
+          } )
      .catch(function (errores) {
           console.log(errores);
-     });
+     })
+
 
  //reviews//
  let urlReviews = `https://api.themoviedb.org/3/tv/${id}/reviews?api_key=${apiKey}&language=en-US&page=1`

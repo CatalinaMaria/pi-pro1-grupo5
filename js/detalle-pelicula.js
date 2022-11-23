@@ -157,6 +157,7 @@ let queryStringObj = new URLSearchParams(queryString); //convierte en objeto
 let variableId = queryStringObj.get("id");
 let listaTrailers = document.querySelector('.trailer')
 
+
 fetch(url2)
      .then(function (response) {
           return response.json();
@@ -176,6 +177,8 @@ fetch(url2)
                             title="Youtube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope: picture-in-picture"
                             allowfullscreen></iframe>`}
+                            
+
 
                     
                }}
