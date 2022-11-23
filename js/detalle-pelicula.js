@@ -30,7 +30,7 @@ fetch(url)
           let generosNombres = ''
           
 
-
+//propiedad innertext, innerhtml source//
           poster.src = ` https://image.tmdb.org/t/p/w500/${data.poster_path} `
           titulo.innerText = data.original_title
           estreno.innerText = data.release_date
@@ -122,13 +122,13 @@ if (peliculasFav.includes(id)) {
 icono.addEventListener("click", function (e) {
      e.preventDefault();
 
-     if (peliculasFav.includes(id)) { // si esta en el array
-          let indice = peliculasFav.indexOf(id); //busca la posicion
-          peliculasFav.splice(indice, 1) //lo borra
+     if (peliculasFav.includes(id)) { 
+          let indice = peliculasFav.indexOf(id); 
+          peliculasFav.splice(indice,1)
           icono.innerText = "Agregar a favoritos"
 
-     } else { //si no esta en el array
-          peliculasFav.push(id) //agregamos al array
+     } else { 
+          peliculasFav.push(id) 
           icono.innerText = "Quitar de favoritos"
 
      }

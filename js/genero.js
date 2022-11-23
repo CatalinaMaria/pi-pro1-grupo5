@@ -36,7 +36,7 @@ fetch(generosSeries)
      let seriesLista = document.querySelector(".seriesPrueba")
      let info = data.genres;
 
-     for (let i = 0; i < 5; i++) {
+     for (let i=0 ; i < 5 ; i++ ) {
           let generosSeries = `<li class="listaGenero"> 
           <a href="./detalle-genero.html?id=${info[i].id}&seriesynombre=${info[i].name}" class="genero"> ${info[i].name} </a>
       </li>`
