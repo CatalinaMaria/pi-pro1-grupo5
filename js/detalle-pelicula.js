@@ -11,8 +11,7 @@ let form = document.querySelector('form')
 let campoBusqueda = document.querySelector('[name=busqueda]')
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
 let reviews = document.querySelector('.reviewsPelicula')
-let plataformas = document.querySelector('.plataformas')
-
+let plataformas = document.querySelector('#plataformas')
 
 
 fetch(url)
@@ -50,29 +49,23 @@ fetch(url)
           console.log(errores);
      });
 //plataformas//
+
 fetch(urlPlataformas)
      .then(function (response) {
           return response.json();
      })
      .then(function (data) {
           console.log(data);
-          let datosProvedor = data.results
+          let datosProvedor = data.results.US.buy
           let contenidoPlataformas = ''
-          
-          if (datosProvedor.US && datosProvedor.US.buy){
-               console.log(datosProvedor.US.buy)
-               let datosPla = datosProvedor.US.buy
-               for (let i = 0; i< datosPla; i ++)
-               contenidoPlataformas += ` <h4>${datosPla[i].provider_name}</h4>
-                                         <img src="https://image.tmdb.org/t/p/w500/${datosPla[i].logo_path} " alt="">
-               `
-               }
-               plataformas.innerHTML += contenidoPlataformas
+          for(i=0; i<datosProvedor.length;i++){
+          contenidoPlataformas +=`
+          <img src="https://image.tmdb.org/t/p/w500/${datosProvedor[i].logo_path}"
+          <p>${datosProvedor[i].provider_name}</p>
+          `
+          plataformas.innerHTML = contenidoPlataformas
 
-
-
-
-     })
+     }})
      .catch(function (errores) {
           console.log(errores);
      });
