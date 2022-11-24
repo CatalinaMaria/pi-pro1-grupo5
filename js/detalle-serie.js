@@ -3,11 +3,14 @@ let qs = location.search;
 let qsObj = new URLSearchParams(qs);
 let id = qsObj.get('id');
 let url = `https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}&language=en-US`
+let urlPlataformas = `https://api.themoviedb.org/3/tv/${id}/watch/providers?api_key=${apiKey}`
+
 
 /*DOM*/
 // let sectionDetPeliculas = document.querySelector('.sectionDetPeliculas')//
 let icono = document.querySelector('.articleIcono') // agarra el corazon 
 let sectionDetSeries = document.querySelector('.sectionDetSeries')
+let plataformas = document.querySelector('#plataformas')
 
 //contenido//
 fetch(url)
@@ -92,6 +95,27 @@ icono.addEventListener("click", function (e) {
 
 })
 
+//plataforma
+fetch(urlPlataformas)
+     .then(function (response) {
+          return response.json();
+     })
+     .then(function (data) {
+          console.log(data);
+          let datosProvedor = data.results.US.buy
+          let contenidoPlataformas = ''
+          for(i=0; i< 5;i++){
+          contenidoPlataformas +=`
+          <img src="https://image.tmdb.org/t/p/w500/${datosProvedor[i].logo_path}"
+          <p>${datosProvedor[i].provider_name}</p>
+          `
+          plataformas.innerHTML = contenidoPlataformas
+
+     }})
+     .catch(function (errores) {
+          console.log(errores);
+     });
+
 //trailer//
 let url2 = `https://api.themoviedb.org/3/tv/${id}/videos?api_key=${apiKey}&language=en-US`
 let queryString = location.search; //cadena de texto
@@ -156,3 +180,4 @@ fetch(url2)
      .catch(function(errores){
           console.log(errores);
      })
+
